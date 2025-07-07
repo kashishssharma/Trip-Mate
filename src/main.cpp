@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 #include "graph.h"
+#include "activity.h"
+ActivityPlanner planner;
+
 using namespace std;
 
 int main() {
@@ -15,6 +18,9 @@ int main() {
         cout << "3. View Map\n";
         cout << "4. Find Shortest Path\n";
         cout << "5. Exit\n";
+        cout << "6. Add Activity\n";
+        cout << "7. Schedule Activities\n";
+
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -48,6 +54,22 @@ int main() {
                 return 0;
             default:
                 cout << "Invalid choice.\n";
+                case 6: {
+                string name;
+                int start, end;
+                cout << "Enter activity name: ";
+                cin >> name;
+                cout << "Enter start time (0–24): ";
+                cin >> start;
+                cout << "Enter end time (0–24): ";
+                cin >> end;
+                planner.addActivity(name, start, end);
+                break;
+            }
+            case 7:
+                planner.scheduleActivities();
+                break;
+
         }
     }
 
